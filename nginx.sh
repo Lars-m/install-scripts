@@ -22,9 +22,7 @@ server {
         listen 80 default_server;
         listen [::]:80 default_server;
         root /var/www/html;
-        index index.html index.htm
-
-        server_name _;
+        index index.html index.htm;
 
         location / {
                 # First attempt to serve request as file, then
@@ -41,4 +39,3 @@ EOF_NGINX
 
 sudo systemctl restart nginx
 
-echo "Provisioning Complete"

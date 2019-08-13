@@ -11,6 +11,8 @@ sudo ufw allow OpenSSH
 sudo ufw allow http
 sudo ufw allow 8080
 sudo ufw allow mysql
+sudo ufw allow 3000 # for node server
+
 sudo ufw --force enable
 
 echo # If you want to play arund with Tomcat without Nginx add this rule:
@@ -20,10 +22,14 @@ echo "##########################################################################
 echo "############################            SETUP           ################################"
 echo "########################################################################################"
 
-echo "############################      Install Mysql web server     ########################"
+echo "############################      Install Mysql server     ########################"
 source $(dirname $0)/mysql.sh
-# echo "############################      Install TOMCAT web server     ########################"
-# source $(dirname $0)/tomcat.sh
+echo "############################      Install TOMCAT web server     ########################"
+source $(dirname $0)/tomcat.sh
+echo "############################      Install nginx server     ########################"
+source $(dirname $0)/nginx.sh
+echo "############################      Install NodeJS server     ########################"
+source $(dirname $0)/installnodejs.sh
 echo "############################      Add test data to mysql        ########################"
 source $(dirname $0)/testdata.sh
 # echo "############################   Add system variables to tomcat   ########################"

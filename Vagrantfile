@@ -15,8 +15,12 @@ Vagrant.configure("2") do |config|
   config.vm.box = "ubuntu/bionic64" #bionic beaver is ubuntu 18.04
 # push to files to vagrant image /tmp/folder from where the vagrant script is running in order to run them from bootstap.sh
 # config.vm.provision "file", source: "addvariables.sh", destination: "/tmp/addvariables.sh"
-  config.vm.provision "file", source: "testdata.sh", destination: "/tmp/testdata.sh"
   config.vm.provision "file", source: "mysql.sh", destination: "/tmp/mysql.sh"
+  config.vm.provision "file", source: "testdata.sh", destination: "/tmp/testdata.sh"
+  config.vm.provision "file", source: "tomcat.sh", destination: "/tmp/tomcat.sh"
+  config.vm.provision "file", source: "nginx.sh", destination: "/tmp/nginx.sh"
+  config.vm.provision "file", source: "simplehttpserver.js", destination: "/tmp/simplehttpserver.js"
+  config.vm.provision "file", source: "installnodejs.sh", destination: "/tmp/installnodejs.sh"
 # run the bootstrap.sh file.
   config.vm.provision :shell, :path => "bootstrap_vagrant.sh"
 #config.vm.provision :shell, :path => "mysql.sh"
@@ -56,6 +60,7 @@ Vagrant.configure("2") do |config|
 # config.vm.network "forwarded_port", guest: 80, host: 8080, host_ip: "172.25.200.200"
   config.vm.network "forwarded_port", guest: 8080, host: 8085, host_ip: "127.0.0.1"
   config.vm.network "forwarded_port", guest: 3306, host: 3306, host_ip: "127.0.0.1"
+  config.vm.network "forwarded_port", guest: 3000, host: 3001, host_ip: "127.0.0.1"
   
 # Create a private network, which allows host-only access to the machine
 # using a specific IP.

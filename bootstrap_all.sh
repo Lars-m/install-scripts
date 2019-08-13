@@ -7,19 +7,17 @@ export DEBIAN_FRONTEND="noninteractive";
 echo #######           Setup the firewall             ####
 echo ####### Allow OPENSSH, port 80, 8080 and https   ####
 
-sudo ufw allow OpenSSH
-sudo ufw allow http
-sudo ufw allow https
-sudo ufw allow 8080
+sudo ufw allow OpenSSH # port 443 to make sure we can ssh into the server after installation
+sudo ufw allow http # nginx is listening here
+sudo ufw allow https # will be used by nginx and certbot/letsencrypt
+sudo ufw allow 8080 # to use tomcat directly without going through nginx
+sudo ufw allow mysql # allow port 3306 for use by mysql server.
 
-sudo ufw allow mysql
 sudo ufw --force enable
 
-echo # If you want to play arund with Tomcat without Nginx add this rule:
-echo # sudo ufw allow 8080
 
 echo "########################################################################################"
-echo "############################ ADDITIONAL SETUP           ################################"
+echo "############################ Install and setup          ################################"
 echo "########################################################################################"
 
 echo "############################      Install Mysql web server     ########################"
@@ -30,8 +28,14 @@ echo "############################      Add test data to mysql        ##########
 source $(dirname $0)/testdata.sh
 echo "############################   Add system variables to tomcat   ########################"
 source $(dirname $0)/addvariables.sh
+echo "############################ Install Nginx and configure reverse proxy #################"
+source $(dirname $0)/nginx.sh
+cp /tmp/cli.ini /etc/letsencrypt/
 echo "############################ Add https certificate with certbot ########################"
 source $(dirname $0)/certbot.sh
+echo "############################ Install Node JS                    ########################"
+source $(dirname $0)/installnodejs.sh
+
 
 
 echo "Provisioning Complete!!"

@@ -11,6 +11,7 @@ apt-get install -y certbot python-certbot-nginx
 wget https://dl.eff.org/certbot-auto
 chmod +x certbot-auto
 mv certbot-auto /usr/local/bin/
+mv /tmp/cli.ini /etc/letsencrypt/
 echo "######### Run certbot     ##############"
 certbot-auto --config cli.ini --nginx --redirect
 service nginx restart

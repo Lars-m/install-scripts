@@ -20,7 +20,7 @@ echo "##########################################################################
 echo "############################ Install and setup          ################################"
 echo "########################################################################################"
 
-echo "############################      Install Mysql web server     ########################"
+echo "############################      Install Mysql web server      ########################"
 source $(dirname $0)/mysql.sh
 echo "############################      Install TOMCAT web server     ########################"
 source $(dirname $0)/tomcat.sh
@@ -35,6 +35,8 @@ echo "############################ Add https certificate with certbot ##########
 source $(dirname $0)/certbot.sh
 echo "############################ Install Node JS                    ########################"
 source $(dirname $0)/installnodejs.sh
+echo "############################      Add a non-root user           ########################"
+source $(dirname $0)/addrootuser.sh
 
 
 

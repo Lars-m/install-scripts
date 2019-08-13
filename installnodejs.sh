@@ -47,6 +47,6 @@ echo "copy simplehttpserver.js to /apps/nodeapps/"
 
 cp /tmp/*.js /apps/node_apps/
 
-node /apps/node_apps/simplehttpserver.js
+# node /apps/node_apps/simplehttpserver.js
 sudo systemctl restart nginx
 

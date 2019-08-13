@@ -7,8 +7,15 @@ add-apt-repository ppa:certbot/certbot
 apt-get update
 
 echo "######### Install certbot ##############"
-apt-get install certbot python-certbot-nginx 
+apt-get install -y certbot python-certbot-nginx 
+wget https://dl.eff.org/certbot-auto
+chmod +x certbot-auto
+mv certbot-auto /usr/local/bin/
 echo "######### Run certbot     ##############"
-certbot-auto certbot-auto --no-self-upgrade --nginx
+certbot-auto --config cli.ini --nginx --redirect
 service nginx restart
 echo "######### certbot done !! ##############"
+
+
+
+

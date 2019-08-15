@@ -16,11 +16,13 @@ Vagrant.configure("2") do |config|
 # push to files to vagrant image /tmp/folder from where the vagrant script is running in order to run them from bootstap.sh
 # config.vm.provision "file", source: "addvariables.sh", destination: "/tmp/addvariables.sh"
   config.vm.provision "file", source: "mysql.sh", destination: "/tmp/mysql.sh"
-  config.vm.provision "file", source: "testdata.sh", destination: "/tmp/testdata.sh"
+  config.vm.provision "file", source: "add_data.sh", destination: "/tmp/add_data.sh"
   config.vm.provision "file", source: "tomcat.sh", destination: "/tmp/tomcat.sh"
+  config.vm.provision "file", source: "addvariables.sh", destination: "/tmp/addvariables.sh"
   config.vm.provision "file", source: "nginx.sh", destination: "/tmp/nginx.sh"
   config.vm.provision "file", source: "simplehttpserver.js", destination: "/tmp/simplehttpserver.js"
   config.vm.provision "file", source: "installnodejs.sh", destination: "/tmp/installnodejs.sh"
+  config.vm.provision "file", source: "addcron.sh", destination: "/tmp/addcron.sh"
 # run the bootstrap.sh file.
   config.vm.provision :shell, :path => "bootstrap_vagrant.sh"
 #config.vm.provision :shell, :path => "mysql.sh"

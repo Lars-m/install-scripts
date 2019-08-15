@@ -21,7 +21,8 @@ sudo groupadd tomcat
 sudo useradd -s /bin/false -g tomcat -d /opt/tomcat tomcat
 
 cd /tmp
-sudo curl -O http://mirrors.dotsrc.org/apache/tomcat/tomcat-9/v9.0.21/bin/apache-tomcat-9.0.21.tar.gz
+# sudo curl -O http://mirrors.dotsrc.org/apache/tomcat/tomcat-9/v9.0.21/bin/apache-tomcat-9.0.21.tar.gz
+sudo curl -O http://dk.mirrors.quenda.co/apache/tomcat/tomcat-9/v9.0.22/bin/apache-tomcat-9.0.22.tar.gz
 sudo mkdir /opt/tomcat
 sudo tar xzvf apache-tomcat-9*tar.gz -C /opt/tomcat --strip-components=1
 

@@ -24,14 +24,14 @@ echo "##########################################################################
 
 echo "############################      Install Mysql server          ########################"
 source $(dirname $0)/mysql.sh
+echo "############################      Add data to mysql             ########################"
+source $(dirname $0)/add_data.sh
 echo "############################      Install TOMCAT web server     ########################"
 source $(dirname $0)/tomcat.sh
 echo "############################      Install nginx server              ####################"
 source $(dirname $0)/nginx.sh
 echo "############################      Install NodeJS server         ########################"
 source $(dirname $0)/installnodejs.sh
-echo "############################      Add test data to mysql        ########################"
-source $(dirname $0)/testdata.sh
 echo "############################      Add cron jobs for db backup etc   ####################"
 source $(dirname $0)/addcron.sh
 

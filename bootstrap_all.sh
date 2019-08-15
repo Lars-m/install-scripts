@@ -5,7 +5,6 @@ export DEBIAN_FRONTEND="noninteractive";
 
 
 echo #######           Setup the firewall             ####
-echo ####### Allow OPENSSH, port 80, 8080 and https   ####
 
 sudo ufw allow OpenSSH # port 443 to make sure we can ssh into the server after installation
 sudo ufw allow http # nginx is listening here
@@ -30,13 +29,14 @@ echo "############################   Add system variables to tomcat   ##########
 source $(dirname $0)/addvariables.sh
 echo "############################ Install Nginx and configure reverse proxy #################"
 source $(dirname $0)/nginx.sh
-cp /tmp/cli.ini /etc/letsencrypt/
 echo "############################ Add https certificate with certbot ########################"
 source $(dirname $0)/certbot.sh
 echo "############################ Install Node JS                    ########################"
 source $(dirname $0)/installnodejs.sh
 echo "############################      Add a non-root user           ########################"
 source $(dirname $0)/addrootuser.sh
+echo "##################    Install and configure utility programs    ########################"
+source $(dirname $0)/utilities.sh
 
 
 

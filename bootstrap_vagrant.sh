@@ -22,16 +22,20 @@ echo "##########################################################################
 echo "############################            SETUP           ################################"
 echo "########################################################################################"
 
-echo "############################      Install Mysql server     ########################"
+echo "############################      Install Mysql server          ########################"
 source $(dirname $0)/mysql.sh
 echo "############################      Install TOMCAT web server     ########################"
 source $(dirname $0)/tomcat.sh
-echo "############################      Install nginx server     ########################"
+echo "############################      Install nginx server              ####################"
 source $(dirname $0)/nginx.sh
-echo "############################      Install NodeJS server     ########################"
+echo "############################      Install NodeJS server         ########################"
 source $(dirname $0)/installnodejs.sh
 echo "############################      Add test data to mysql        ########################"
 source $(dirname $0)/testdata.sh
+echo "############################      Add cron jobs for db backup etc   ####################"
+source $(dirname $0)/addcron.sh
+
+
 # echo "############################   Add system variables to tomcat   ########################"
 # source $(dirname $0)/addvariables.sh
 # echo "############################ Add https certificate with certbot ########################"

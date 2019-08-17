@@ -1,0 +1,29 @@
+#!/bin/bash
+# input="./passwords"
+# # while read -r line
+# # do
+# #     for word in $line
+# #     do
+# #         echo "word = '$word'"
+# #     done
+# # done
+# # done < "$input"
+# # while read -a line
+# # do 
+# #   echo "$line"
+# # done < "$input"
+# mapfile < ./passwords
+# echo ${MAPFILE[1]}
+
+MANAGER_GUI=$(awk 'NR==1 {print $1}' ./passwords)
+MANAGER_GUI_PW=$(awk 'NR==1 {print $2}' ./passwords)
+
+MANAGER_SCRIPT=$(awk 'NR==2 {print $1}' ./passwords)
+MANAGER_SCRIPT_PW=$(awk 'NR==2 {print $2}' ./passwords)
+
+USERNAME=$(awk 'NR==4 {print $1}' ./passwords)
+PW=$(awk 'NR==4 {print $2}' ./passwords)
+
+echo "$MANAGER_GUI has password $MANAGER_GUI_PW"
+echo "$MANAGER_SCRIPT has password $MANAGER_SCRIPT_PW"
+echo "$USERNAME has password $PW"

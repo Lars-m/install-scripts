@@ -7,8 +7,12 @@
 ########################################################################################
 ## IMPORTANT: If you run this script on a public server, change the passwords below ####
 ########################################################################################
-MANAGER_GUI_PW="a1234"
-MANAGER_SCRIPT_PW="a1234"
+# Read username and passwords:
+MANAGER_GUI=$(awk 'NR==1 {print $1}' /tmp/passwords)
+MANAGER_GUI_PW=$(awk 'NR==1 {print $2}' /tmp/passwords)
+
+MANAGER_SCRIPT=$(awk 'NR==2 {print $1}' /tmp/passwords)
+MANAGER_SCRIPT_PW=$(awk 'NR==2 {print $2}' /tmp/passwords)
 
 
 echo "########################## Install Java     #########################"
@@ -59,8 +63,8 @@ sudo cat <<- EOF_TCU > /opt/tomcat/conf/tomcat-users.xml
          NOTE:  DO NOT USE THIS FILE IN PRODUCTION.
          IT'S MEANT ONLY FOR A LOCAL DEVELOPMENT SERVER
 -->
-  <user username="gui_user" password="$MANAGER_GUI_PW" roles="manager-gui"/>
-  <user username="script_user" password="$MANAGER_SCRIPT_PW" roles="manager-script"/>
+  <user username="$MANAGER_GUI" password="$MANAGER_GUI_PW" roles="manager-gui"/>
+  <user username="$MANAGER_SCRIPT" password="$MANAGER_SCRIPT_PW" roles="manager-script"/>
 </tomcat-users>
 EOF_TCU
 

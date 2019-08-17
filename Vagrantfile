@@ -24,6 +24,7 @@ Vagrant.configure("2") do |config|
   config.vm.provision "file", source: "installnodejs.sh", destination: "/tmp/installnodejs.sh"
   config.vm.provision "file", source: "addcron.sh", destination: "/tmp/addcron.sh"
   config.vm.provision "file", source: "utilities.sh", destination: "/tmp/utilities.sh"
+  config.vm.provision "file", source: "passwords", destination: "/tmp/passwords"
 # run the bootstrap.sh file.
   config.vm.provision :shell, :path => "bootstrap_vagrant.sh"
 #config.vm.provision :shell, :path => "mysql.sh"

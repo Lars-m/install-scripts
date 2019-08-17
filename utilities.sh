@@ -6,8 +6,8 @@
 echo "###############################################################################"
 echo "###################   install and configure new shell: zsh  ###################"
 echo "###############################################################################"
-su tha
-apt install -y zsh
+
+sudo apt install -y zsh
 # download and install oh-my-zsh (sending contents of the page to bash via STDIN) the single dash means stdin in place of a file to write to.
 wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
 # copy the zsh template file from oh-my-zsh

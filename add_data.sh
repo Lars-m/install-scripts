@@ -1,5 +1,7 @@
 #!/bin/bash
-sudo mysql -u dev -pax2 < /vagrant/mysql_dumps/mysql_backup.sql
+DB_USER_NAME=$(awk 'NR==3 {print $1}' /tmp/passwords)
+DB_PW=$(awk 'NR==3 {print $2}' /tmp/passwords)
+sudo mysql -u $DB_USER_NAME -p$DB_PW < ./mysql_dumps/mysql_backup.sql
 
 # sudo mysql -u dev -pax2 -e "CREATE DATABASE mydb;"
 # sudo mysql -u dev -pax2 -e "CREATE DATABASE mydb_test;"

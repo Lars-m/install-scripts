@@ -34,8 +34,8 @@ echo "############################      Install NodeJS server         ##########
 source $(dirname $0)/installnodejs.sh
 echo "############################      Add cron jobs for db backup etc   ####################"
 source $(dirname $0)/addcron.sh
-echo "############################      Install utility tools   ####################"
-source $(dirname $0)/utilities.sh
+# echo "############################      Install utility tools   ####################"
+# source $(dirname $0)/utilities.sh
 
 
 # echo "############################   Add system variables to tomcat   ########################"

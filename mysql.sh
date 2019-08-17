@@ -3,8 +3,8 @@
 #### IMPORTANT!!!! If you run this script on a public server, change ALL usernames and passwords #####
 ######################################################################################################
 
-DB_PW="ax2"
-DB_USER_NAME="dev"
+DB_USER_NAME=$(awk 'NR==3 {print $1}' /tmp/passwords)
+DB_PW=$(awk 'NR==3 {print $2}' /tmp/passwords)
 
 # Find all versions of mysql here: https://downloads.mysql.com/archives/community/
 sudo apt-get update
@@ -35,13 +35,17 @@ FLUSH PRIVILEGES;
 _EOF_
 
 sudo mysql -u root -p$DB_PW -t <<MYSQL_INPUT
+DROP USER IF EXISTS '$DB_USER_NAME'@'localhost';
+flush privileges;
 CREATE User '$DB_USER_NAME'@'localhost' IDENTIFIED BY '$DB_PW';
 GRANT ALL PRIVILEGES ON *.* TO '$DB_USER_NAME'@'localhost' WITH GRANT OPTION;
 MYSQL_INPUT
 
 #Allow remote access 
 sudo mysql -u root -p$DB_PW -t <<MYSQL_INPUT2
-CREATE User '$DB_USER_NAME'@'%' IDENTIFIED BY '$DB_PW' ;
+DROP USER IF EXISTS '$DB_USER_NAME'@'localhost';
+flush privileges;
+CREATE User '$DB_USER_NAME'@'%' IDENTIFIED BY '$DB_PW';
 GRANT ALL PRIVILEGES ON *.* TO '$DB_USER_NAME'@'%' WITH GRANT OPTION;
 MYSQL_INPUT2
 

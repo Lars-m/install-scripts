@@ -19,7 +19,7 @@ echo "##########################################################################
 echo "############################ Install and setup          ################################"
 echo "########################################################################################"
 
-echo "############################      Install Mysql web server      ########################"
+echo "############################      Install Mysql server      ########################"
 source $(dirname $0)/mysql.sh
 echo "############################      Install TOMCAT web server     ########################"
 source $(dirname $0)/tomcat.sh
@@ -36,7 +36,7 @@ source $(dirname $0)/installnodejs.sh
 echo "############################      Add a non-root user           ########################"
 source $(dirname $0)/addrootuser.sh
 echo "##################    Install and configure utility programs    ########################"
-source $(dirname $0)/utilities.sh
+# source $(dirname $0)/utilities.sh
 echo "##################    Install docker   ########################"
 source $(dirname $0)/installdocker.sh
 

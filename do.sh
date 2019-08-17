@@ -9,7 +9,7 @@ read ip_address
 # scp addvariables.sh root@$ip_address:/tmp/
 # scp certbot.sh root@$ip_address:/tmp/
 
-scp ./* root@$ip_address:/tmp/
+scp -r ./* root@$ip_address:/tmp/
 # rsync -av --include='*.sh' --include='*.ini' --include='*.js' --exclude='*' ./ root@$ip_address:/tmp/
 
 ssh root@$ip_address chmod +x /tmp/bootstrap_all.sh

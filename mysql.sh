@@ -1,3 +1,4 @@
+#! /usr/bin/env bash
 ######################################################################################################
 #### IMPORTANT!!!! If you run this script on a public server, change ALL usernames and passwords #####
 ######################################################################################################
@@ -5,10 +6,7 @@
 DB_PW="ax2"
 DB_USER_NAME="dev"
 
-MANAGER_GUI_PW="a1234"
-MANAGER_SCRIPT_PW="a1234"
-
-
+# Find all versions of mysql here: https://downloads.mysql.com/archives/community/
 sudo apt-get update
 sudo apt-get install -y debconf-utils
 sudo debconf-set-selections <<< 'mysql-apt-config mysql-apt-config/select-server select mysql-8.0'

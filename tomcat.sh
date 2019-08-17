@@ -12,7 +12,12 @@ MANAGER_SCRIPT_PW="a1234"
 
 
 echo "########################## Install Java     #########################"
-sudo -E apt-get install -y openjdk-8-jre
+# sudo -E apt-get install -y openjdk-8-jre
+# sudo -E apt install openjdk-8-jre-headless
+
+sudo add-apt-repository ppa:openjdk-r/ppa
+sudo apt-get update
+sudo apt-get install -y openjdk-8-jre
 
 echo ""
 echo "########################## Tomcat Setup     #########################"
@@ -22,9 +27,11 @@ sudo useradd -s /bin/false -g tomcat -d /opt/tomcat tomcat
 
 cd /tmp
 # sudo curl -O http://mirrors.dotsrc.org/apache/tomcat/tomcat-9/v9.0.21/bin/apache-tomcat-9.0.21.tar.gz
-sudo curl -O http://dk.mirrors.quenda.co/apache/tomcat/tomcat-9/v9.0.22/bin/apache-tomcat-9.0.22.tar.gz
+# sudo curl -O http://dk.mirrors.quenda.co/apache/tomcat/tomcat-9/v9.0.22/bin/apache-tomcat-9.0.22.tar.gz
+# sudo wget https://github.com/Dat3SemStartCode/install/raw/master/apache-tomcat-9.0.22.tar.gz
+sudo curl -O https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.22/bin/apache-tomcat-9.0.22.tar.gz 
 sudo mkdir /opt/tomcat
-sudo tar xzvf apache-tomcat-9*tar.gz -C /opt/tomcat --strip-components=1
+sudo tar -xzvf apache-tomcat-9*tar.gz -C /opt/tomcat --strip-components=1
 
 #Remove what we don't need
 sudo rm -r /opt/tomcat/webapps/examples

@@ -2,6 +2,7 @@
 # add a new user with root privileges and ssh login
 echo "enter username to create non root user:"
 read username
+echo "enter password for user: $username"
 read password
 
 sudo adduser $username --gecos "Thomas Hartmann, room, phone_work, phone_home" --disabled-password

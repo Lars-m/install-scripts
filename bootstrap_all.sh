@@ -24,7 +24,7 @@ source $(dirname $0)/mysql.sh
 echo "############################      Install TOMCAT web server     ########################"
 source $(dirname $0)/tomcat.sh
 echo "############################      Add test data to mysql        ########################"
-source $(dirname $0)/testdata.sh
+source $(dirname $0)/add_data.sh
 echo "############################   Add system variables to tomcat   ########################"
 source $(dirname $0)/addvariables.sh
 echo "############################ Install Nginx and configure reverse proxy #################"
@@ -37,6 +37,8 @@ echo "############################      Add a non-root user           ##########
 source $(dirname $0)/addrootuser.sh
 echo "##################    Install and configure utility programs    ########################"
 source $(dirname $0)/utilities.sh
+echo "##################    Install docker   ########################"
+source $(dirname $0)/installdocker.sh
 
 
 

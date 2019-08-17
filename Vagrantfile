@@ -23,6 +23,7 @@ Vagrant.configure("2") do |config|
   config.vm.provision "file", source: "simplehttpserver.js", destination: "/tmp/simplehttpserver.js"
   config.vm.provision "file", source: "installnodejs.sh", destination: "/tmp/installnodejs.sh"
   config.vm.provision "file", source: "addcron.sh", destination: "/tmp/addcron.sh"
+  config.vm.provision "file", source: "utilities.sh", destination: "/tmp/utilities.sh"
 # run the bootstrap.sh file.
   config.vm.provision :shell, :path => "bootstrap_vagrant.sh"
 #config.vm.provision :shell, :path => "mysql.sh"
@@ -59,9 +60,9 @@ Vagrant.configure("2") do |config|
 #config.vm.network "forwarded_port", guest: 3306, host: 3307, host_ip: "172.118.100.100"
 
 ###############################Changed ip address#######################################################
-# config.vm.network "forwarded_port", guest: 80, host: 8080, host_ip: "172.25.200.200"
-  config.vm.network "forwarded_port", guest: 8080, host: 8085, host_ip: "127.0.0.1"
-  config.vm.network "forwarded_port", guest: 3306, host: 3306, host_ip: "127.0.0.1"
+  config.vm.network "forwarded_port", guest: 80,   host: 8001, host_ip: "127.0.0.1"
+  config.vm.network "forwarded_port", guest: 8080, host: 8002, host_ip: "127.0.0.1"
+  config.vm.network "forwarded_port", guest: 3306, host: 3307, host_ip: "127.0.0.1"
   config.vm.network "forwarded_port", guest: 3000, host: 3001, host_ip: "127.0.0.1"
   
 # Create a private network, which allows host-only access to the machine

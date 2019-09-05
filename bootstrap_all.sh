@@ -35,7 +35,7 @@ echo "############################ Install Node JS                    ##########
 source $(dirname $0)/installnodejs.sh
 echo "############################      Add a non-root user           ########################"
 source $(dirname $0)/addrootuser.sh
-echo "##################    Install and configure utility programs    ########################"
+# echo "##################    Install and configure utility programs    ########################"
 # source $(dirname $0)/utilities.sh
 echo "##################    Install docker   ########################"
 source $(dirname $0)/installdocker.sh

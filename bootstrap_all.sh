@@ -39,6 +39,8 @@ source $(dirname $0)/addrootuser.sh
 # source $(dirname $0)/utilities.sh
 echo "##################    Install docker   ########################"
 source $(dirname $0)/installdocker.sh
+echo "##################    Install Mongodb on port: 27017   ########################"
+source $(dirname $0)/mongodb.sh
 
 
 
